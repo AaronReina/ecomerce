@@ -1,5 +1,5 @@
 import React from "react";
-import { getToken } from "./../axios/calls";
+import { getToken, getBooks } from "./../axios/calls";
 const Main = () => {
   const call = async () => {
     try {
@@ -10,10 +10,20 @@ const Main = () => {
       console.log(e);
     }
   };
+  const callBooks = async () => {
+    try {
+      const response = await getBooks();
+
+      console.log(response);
+    } catch (e) {
+      console.log(e);
+    }
+  };
+
   return (
     <div>
-      main
-      <button onClick={() => call()}>sadasdasds</button>
+      <button onClick={() => call()}>call auth</button>
+      <button onClick={() => callBooks()}>call books</button>
     </div>
   );
 };
