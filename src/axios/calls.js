@@ -3,12 +3,7 @@ import instance from "./";
 //getToken test
 export const getToken = async () => {
   try {
-    const response = await instance.post("/users/sessions", {
-      session: {
-        email: "test@wolox.com.ar",
-        password: "mypassword"
-      }
-    });
+    const response = await instance.get("/auth/login");
 
     return response.data;
   } catch (e) {
@@ -17,15 +12,13 @@ export const getToken = async () => {
 };
 
 //getBooks test
-export const getBooks = async (data, token) => {
+export const getBooks = async token => {
   try {
-    const response = await instance.get("/books", {
-      params: data,
+    const response = await instance.get("/books/getBooks", {
       headers: {
         "Content-Type": "application/json",
         Accept: "Accept",
-        Authorization:
-          "eyJ0eXAiOiJKV1QiLCJhbiAoOiJIUzI1NiJ9.eyJvX2F1dGhfYXBwbGljYXRpb25faWQiOjF9.h7ZNPpbd_Bu8yL27fmCAI_wgyZJI44b5eRRxwWUcwaQ"
+        Authorization: "Bearer " + token
       }
     });
 
