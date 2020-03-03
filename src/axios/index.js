@@ -2,5 +2,5 @@ import axios from "axios";
 
 export default axios.create({
   baseURL: "http://b4134f44.ngrok.io",
-  timeout: 5000
+  timeout: 50000
 });
