@@ -1,6 +1,6 @@
 import axios from "axios";
 
 export default axios.create({
-  baseURL: "http://localhost:3000/",
-  timeout: 6000
+  baseURL: "http://b4134f44.ngrok.io",
+  timeout: 5000
 });
