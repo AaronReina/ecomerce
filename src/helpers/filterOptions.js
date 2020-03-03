@@ -24,6 +24,14 @@ export default (data, option, info) => {
         e.category.toUpperCase().includes(info.toUpperCase())
       );
       return finalData;
+    case "delete":
+      const position = data.findIndex(e => {
+        return e._id === info;
+      });
+
+      data.splice(position, 1);
+      console.log(data);
+      return data;
     default:
       return data;
   }
