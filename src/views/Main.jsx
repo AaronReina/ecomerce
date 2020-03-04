@@ -98,33 +98,35 @@ const Main = ({ classes, data, addInfo, chartBooks }) => {
 
   return (
     <div className={classes.container}>
-      <div className={classes.filterBox}>
-        <Typography gutterBottom variant="body1" component="p">
-          Select your filter or type your category{" "}
-        </Typography>
-        <FormControl className={classes.formControl}>
-          <InputLabel id="demo-simple-select-label">Sort Types</InputLabel>
-          <Select
-            labelId="demo-simple-select-label"
-            id="demo-simple-select"
-            onChange={e => handleChange(e.target.value)}
-            value={select}
-          >
-            <MenuItem value={"oldFirst"}>Old ones first</MenuItem>
-            <MenuItem value={"oldLast"}>Old ones last</MenuItem>
-            <MenuItem value={"cheapFirst"}>Cheaper first</MenuItem>
-            <MenuItem value={"cheapLast"}>Cheaper last</MenuItem>
-          </Select>
-        </FormControl>
-        <FormControl className={classes.formControl}>
-          <TextField
-            value={text}
-            id="categorySearch"
-            label="Category"
-            onChange={e => handleChange("category", e.target.value)}
-          />
-        </FormControl>
-      </div>
+      {books && (
+        <div className={classes.filterBox}>
+          <Typography gutterBottom variant="body1" component="p">
+            Select your filter or type your category{" "}
+          </Typography>
+          <FormControl className={classes.formControl}>
+            <InputLabel id="demo-simple-select-label">Sort Types</InputLabel>
+            <Select
+              labelId="demo-simple-select-label"
+              id="demo-simple-select"
+              onChange={e => handleChange(e.target.value)}
+              value={select}
+            >
+              <MenuItem value={"oldFirst"}>Old ones first</MenuItem>
+              <MenuItem value={"oldLast"}>Old ones last</MenuItem>
+              <MenuItem value={"cheapFirst"}>Cheaper first</MenuItem>
+              <MenuItem value={"cheapLast"}>Cheaper last</MenuItem>
+            </Select>
+          </FormControl>
+          <FormControl className={classes.formControl}>
+            <TextField
+              value={text}
+              id="categorySearch"
+              label="Category"
+              onChange={e => handleChange("category", e.target.value)}
+            />
+          </FormControl>
+        </div>
+      )}
       <div className={classes.box}>
         {books &&
           books.map((e, index) => (
